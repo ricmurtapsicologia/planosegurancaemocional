@@ -47,9 +47,19 @@
 		}
 		/* Dark Mode */
 		body.dark {
-		  --bg: #333;
+		  --bg: #222;
 		  --text: #f5f7fa;
 		  --primary: #82b1ff;
+		}
+		
+		/* override white panels in dark mode */
+		body.dark #intro,
+		body.dark .video-card,
+		body.dark .plan-step,
+		body.dark .tool,
+		body.dark footer {
+		  background: var(--bg);
+		  color: var(--text);
 		}
 		
 		*, *::before, *::after { box-sizing: border-box; }
@@ -82,7 +92,7 @@
 		
 		/* No-JS Warning */
 		.no-js-warning {
-		  background: #e74c3c;
+		  background: var(--crisis);
 		  color: #fff;
 		  text-align: center;
 		  padding: var(--spacing);
@@ -114,9 +124,10 @@
 		
 		/* Theme toggle */
 		.theme-toggle {
-		  position: fixed; top: 20px; right: 80px;
+		  position: fixed; top: 20px; left: 20px; right: auto;
 		  background: transparent; border: none;
 		  font-size: 1.5rem; z-index: 10001;
+		  color: var(--text);
 		}
 		
 		/* Splash */
@@ -240,9 +251,10 @@
 		  border:none; border-radius:var(--radius); background:var(--accent);
 		  color:#fff; margin-top:var(--spacing);
 		}
+		/* removed fixed display:none: rely on hidden attribute */
 		.tool #breathing-container,
 		.tool #grounding-container {
-		  display:none; width:100%; position:relative;
+		  width:100%; position:relative;
 		  padding-bottom:56.25%; overflow:hidden; border-radius:var(--radius);
 		  margin-top:var(--spacing);
 		}
@@ -340,52 +352,49 @@
 					<label for="signals-alert" class="sr-only">Sinais de alerta</label>
 					<i data-feather="alert-circle"></i>
 					<h3>1. Sinais de alerta</h3>
-					<p class="step-guide"> Descreva seus primeiros sinais, ex: pensamentos negativos, batimentos acelerados. </p>
+					<p class="step-guide">Descreva seus primeiros sinais, ex: pensamentos negativos, batimentos acelerados.</p>
 					<textarea id="signals-alert" placeholder="Liste seus sinais de alerta" maxlength="200"></textarea>
 				</div>
 				<div class="plan-step">
 					<label for="strategies" class="sr-only">Estratégias de enfrentamento</label>
 					<i data-feather="tool"></i>
 					<h3>2. Estratégias de enfrentamento</h3>
-					<p class="step-guide"> Anote técnicas imediatas, ex: respirar fundo, caminhar, ouvir música suave. </p>
+					<p class="step-guide">Anote técnicas imediatas, ex: respirar fundo, caminhar, ouvir música suave.</p>
 					<textarea id="strategies" placeholder="Descreva suas estratégias" maxlength="200"></textarea>
 				</div>
 				<div class="plan-step">
 					<label for="distractions" class="sr-only">Distrações</label>
 					<i data-feather="map-pin"></i>
 					<h3>3. Distrações</h3>
-					<p class="step-guide"> Liste lugares ou pessoas, ex: parque, amigo confidencial, clube de leitura. </p>
+					<p class="step-guide">Liste lugares ou pessoas, ex: parque, amigo confidencial, clube de leitura.</p>
 					<textarea id="distractions" placeholder="Ex: amigo João, parque" maxlength="200"></textarea>
 				</div>
 				<div class="plan-step">
 					<label for="support-network" class="sr-only">Rede de apoio</label>
 					<i data-feather="users"></i>
 					<h3>4. Rede de apoio</h3>
-					<p class="step-guide"> Informe contatos úteis, ex: mãe (xx) xxxx-xxxx, terapeuta, grupo de apoio. </p>
+					<p class="step-guide">Informe contatos úteis, ex: mãe (xx) xxxx-xxxx, terapeuta, grupo de apoio.</p>
 					<textarea id="support-network" placeholder="Ex: mãe (xx) xxxx-xxxx" maxlength="200"></textarea>
 				</div>
 				<div class="plan-step">
 					<label for="emergency-services" class="sr-only">Serviços de emergência</label>
 					<i data-feather="phone"></i>
 					<h3>5. Serviços de emergência</h3>
-					<p class="step-guide"> Liste contatos de emergência, ex: SAMU (192), CVV (188), Corpo de Bombeiros (193). </p>
+					<p class="step-guide">Liste contatos de emergência, ex: SAMU (192), CVV (188), Corpo de Bombeiros (193).</p>
 					<textarea id="emergency-services" placeholder="Ex: CAPS BH" maxlength="200"></textarea>
 				</div>
 				<div class="plan-step">
 					<label for="safe-environment" class="sr-only">Ambiente seguro</label>
 					<i data-feather="shield"></i>
 					<h3>6. Ambiente seguro</h3>
-					<p class="step-guide"> Descreva formas de tornar seu espaço acolhedor e seguro, como remover riscos e contar com supervisão de pessoas de confiança. </p>
+					<p class="step-guide">Descreva formas de tornar seu espaço acolhedor e seguro, como remover riscos e contar com supervisão de pessoas de confiança.</p>
 					<textarea id="safe-environment" placeholder="Como tornar o ambiente seguro" maxlength="200"></textarea>
 				</div>
 			</div>
 			<div class="action-buttons">
-				<button class="btn pdf-btn" id="generate-pdf">
-					<i class="fas fa-file-pdf"></i> Gerar PDF </button>
-				<a href="tel:192" class="btn crisis-btn">
-					<i class="fas fa-phone-alt"></i> Estou em crise </a>
-				<button class="btn cvv-btn" id="cvv-btn">
-					<i class="fas fa-headset"></i> CVV </button>
+				<button class="btn pdf-btn" id="generate-pdf"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
+				<a href="tel:192" class="btn crisis-btn"><i class="fas fa-phone-alt"></i> Estou em crise</a>
+				<button class="btn cvv-btn" id="cvv-btn"><i class="fas fa-headset"></i> CVV</button>
 			</div>
 		</section>
 		<!-- Ferramentas Terapêuticas -->
@@ -394,7 +403,7 @@
 			<div class="tools-grid">
 				<div class="tool">
 					<h3>Respiração Quadrada</h3>
-					<p class="tool-guide"> Este exercício guia você a respirar de forma ritmada: inspire contando mentalmente até quatro, segure o ar por quatro segundos, expire lentamente contando até quatro e mantenha os pulmões vazios por mais quatro segundos. Repita conforme sentir necessidade. </p>
+					<p class="tool-guide">Este exercício guia você a respirar de forma ritmada: inspire contando mentalmente até quatro, segure o ar por quatro segundos, expire lentamente contando até quatro e mantenha os pulmões vazios por mais quatro segundos. Repita conforme sentir necessidade.</p>
 					<button class="btn" id="toggle-breathing">Saiba mais aqui</button>
 					<div id="breathing-container" hidden>
 						<iframe src="https://www.youtube.com/embed/85pQAwyNgYI?rel=0&modestbranding=1" allowfullscreen></iframe>
@@ -402,7 +411,7 @@
 				</div>
 				<div class="tool">
 					<h3>Técnica de Grounding</h3>
-					<p class="tool-guide"> Este exercício ajuda a ancorar você no presente: nomeie cinco coisas que vê, toque quatro texturas diferentes, escute três sons distintos, identifique dois cheiros e saboreie um gosto para trazer foco ao aqui e agora. </p>
+					<p class="tool-guide">Este exercício ajuda a ancorar você no presente: nomeie cinco coisas que vê, toque quatro texturas diferentes, escute três sons distintos, identifique dois cheiros e saboreie um gosto para trazer foco ao aqui e agora.</p>
 					<button class="btn" id="toggle-grounding">Saiba mais aqui</button>
 					<div id="grounding-container" hidden>
 						<iframe src="https://www.youtube.com/embed/ov4gq0PnzzA?rel=0&modestbranding=1" allowfullscreen></iframe>
@@ -415,14 +424,11 @@
 			<h2 id="contact-title">Gostaria de compartilhar alguma mensagem comigo?</h2>
 			<label for="user-message" class="sr-only">Mensagem para Richelmy Murta</label>
 			<textarea id="user-message" placeholder="Escreva sua mensagem..." maxlength="200"></textarea>
-			<button class="btn" id="send-message">
-				<i class="fab fa-whatsapp"></i> Enviar </button>
+			<button class="btn" id="send-message"><i class="fab fa-whatsapp"></i> Enviar</button>
 		</section>
 	</main>
 	<!-- Flutuantes -->
-	<a id="share-page" href="https://api.whatsapp.com/send?text=Estou%20enviando%20este%20plano%20para%20você" target="_blank">
-		<i class="fab fa-whatsapp"></i>
-	</a>
+	<a id="share-page" href="https://api.whatsapp.com/send?text=Estou%20enviando%20este%20plano%20para%20você" target="_blank"><i class="fab fa-whatsapp"></i></a>
 	<a id="back-to-top" href="#top"><i class="fas fa-chevron-up"></i></a>
 	<!-- Footer -->
 	<footer role="contentinfo">
@@ -451,18 +457,18 @@
 		    document.getElementById('toggle-' + id)
 		      .addEventListener('click', () => {
 		        const el = document.getElementById(id + '-container');
-		        el.hidden ? el.removeAttribute('hidden') : el.setAttribute('hidden','');
+		        el.hidden ? el.removeAttribute('hidden') : el.setAttribute('hidden', '');
 		      });
 		  });
 		
 		  // PDF generation with feedback & loading spinner
 		  const notif = document.getElementById('notification');
-		  const ovl   = document.getElementById('overlay');
+		  const ovl = document.getElementById('overlay');
 		  document.getElementById('generate-pdf')
 		    .addEventListener('click', async () => {
 		      // truncate inputs
 		      document.querySelectorAll('textarea').forEach(t => {
-		        if (t.value.length > 200) t.value = t.value.slice(0,200);
+		        if (t.value.length > 200) t.value = t.value.slice(0, 200);
 		      });
 		
 		      // show spinner & notification
@@ -471,59 +477,59 @@
 		      notif.removeAttribute('hidden');
 		
 		      // allow spinner to render
-		      await new Promise(r => setTimeout(r,50));
+		      await new Promise(r => setTimeout(r, 50));
 		
 		      // generate PDF (mesma lógica original)
 		      const { jsPDF } = window.jspdf;
 		      const doc = new jsPDF();
 		      let y = 20, margin = 20;
 		      doc.setFontSize(18);
-		      doc.text('Plano de Segurança Emocional', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
+		      doc.text('Plano de Segurança Emocional', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
 		      y += 12;
 		      doc.setFontSize(12);
 		      const intro = 'Este Plano de Segurança Emocional é uma ferramenta prática para usar quando a crise se aproxima. Ele ajuda a identificar sinais, listar estratégias de enfrentamento, distrações saudáveis, rede de apoio, contatos de emergência e tornar o ambiente seguro.';
-		      doc.text(intro, margin, y, { maxWidth:168, align:'justify' });
+		      doc.text(intro, margin, y, { maxWidth: 168, align: 'justify' });
 		      y += 30;
-		      document.querySelectorAll('.plan-step').forEach((step,i) => {
+		      document.querySelectorAll('.plan-step').forEach((step, i) => {
 		        const title = step.querySelector('h3').innerText;
-		        const val   = step.querySelector('textarea').value || '---';
-		        doc.setFont(undefined,'bold');
-		        doc.text(`${i+1}. ${title}`, margin, y);
+		        const val = step.querySelector('textarea').value || '---';
+		        doc.setFont(undefined, 'bold');
+		        doc.text(`${i + 1}. ${title}`, margin, y);
 		        y += 6;
-		        doc.setFont(undefined,'normal');
-		        doc.text(val, margin+4, y, { maxWidth:168, align:'justify' });
+		        doc.setFont(undefined, 'normal');
+		        doc.text(val, margin + 4, y, { maxWidth: 168, align: 'justify' });
 		        y += 20;
 		      });
 		      const vids = [
-		        ['Música Calmante','https://youtu.be/EMiDYIVhpKA'],
-		        ['Crise de Ansiedade','https://youtu.be/AMu9YYKB3YU'],
-		        ['Sem Vontade de Viver','https://youtu.be/7rjk9gANBP4'],
-		        ['Respiração Quadrada','https://youtu.be/85pQAwyNgYI'],
-		        ['Grounding Guiado','https://youtu.be/ov4gq0PnzzA']
+		        ['Música Calmante', 'https://youtu.be/EMiDYIVhpKA'],
+		        ['Crise de Ansiedade', 'https://youtu.be/AMu9YYKB3YU'],
+		        ['Sem Vontade de Viver', 'https://youtu.be/7rjk9gANBP4'],
+		        ['Respiração Quadrada', 'https://youtu.be/85pQAwyNgYI'],
+		        ['Grounding Guiado', 'https://youtu.be/ov4gq0PnzzA']
 		      ];
-		      doc.setFont(undefined,'bold');
+		      doc.setFont(undefined, 'bold');
 		      doc.text('Links de Vídeos:', margin, y);
 		      y += 6;
-		      doc.setFont(undefined,'normal');
-		      vids.forEach(([t,l]) => {
-		        doc.text(`${t}: ${l}`, margin+4, y);
+		      doc.setFont(undefined, 'normal');
+		      vids.forEach(([t, l]) => {
+		        doc.text(`${t}: ${l}`, margin + 4, y);
 		        y += 6;
 		      });
 		      y += 10;
 		      const concl = 'Parabéns por usar este plano! Mantenha-o sempre à mão e revise suas respostas quando sentir necessidade. Este guia é seu aliado na busca por estabilidade emocional e segurança. Você não está sozinho — conte sempre com apoio.';
-		      doc.text(concl, margin, y, { maxWidth:168, align:'justify' });
+		      doc.text(concl, margin, y, { maxWidth: 168, align: 'justify' });
 		      y += 30;
-		      doc.text('Richelmy Murta, Psicólogo Clínico', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
+		      doc.text('Richelmy Murta, Psicólogo Clínico', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
 		      y += 6; doc.setFontSize(10);
-		      doc.text('Especialista em Terapia Cognitivo-Comportamental', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
+		      doc.text('Especialista em Terapia Cognitivo-Comportamental', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
 		      y += 6;
-		      doc.text('35 98464‑0729', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
+		      doc.text('35 98464‑0729', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
 		      doc.save('Plano-de-Segurança.pdf');
 		
 		      // hide spinner, update notification
-		      ovl.setAttribute('hidden','');
+		      ovl.setAttribute('hidden', '');
 		      notif.textContent = 'Pronto! Verifique seus downloads.';
-		      setTimeout(() => notif.setAttribute('hidden',''), 5000);
+		      setTimeout(() => notif.setAttribute('hidden', ''), 5000);
 		    });
 		
 		  // CVV
