@@ -14,7 +14,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Plano de Segurança Emocional" />
 	<meta property="og:description" content="Ferramentas práticas e contatos de emergência para lidar com crises emocionais." />
-	<meta property="og:url" content="https://ricmurtapsicologia.github.io/planosegurancaemocional/" />
+	<meta property="og:url" content="https://ricmurtapsicologia.github.io/planosegurancaemocional/?utm_source=whatsapp&utm_medium=share&utm_campaign=plano_seguranca" />
 	<meta property="og:image" content="https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg" />
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -28,7 +28,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
 	<script defer src="https://unpkg.com/feather-icons"></script>
 	<style>
-		/* make hidden attribute work reliably */
 		[hidden] { display: none !important; }
 		
 		:root {
@@ -45,14 +44,11 @@
 		  --btn-width: 180px;
 		  --btn-height: 45px;
 		}
-		/* Dark Mode */
 		body.dark {
 		  --bg: #222;
 		  --text: #f5f7fa;
 		  --primary: #82b1ff;
 		}
-		
-		/* override white panels in dark mode */
 		body.dark #intro,
 		body.dark .video-card,
 		body.dark .plan-step,
@@ -90,7 +86,6 @@
 		p { margin-bottom: var(--spacing); }
 		button { cursor: pointer; }
 		
-		/* No-JS Warning */
 		.no-js-warning {
 		  background: var(--crisis);
 		  color: #fff;
@@ -98,7 +93,6 @@
 		  padding: var(--spacing);
 		}
 		
-		/* Notification & Overlay */
 		.notification {
 		  position: fixed;
 		  top: 20px; right: 20px;
@@ -122,15 +116,13 @@
 		}
 		@keyframes spin { to { transform: rotate(360deg); } }
 		
-		/* Theme toggle */
 		.theme-toggle {
-		  position: fixed; top: 20px; left: 20px; right: auto;
+		  position: fixed; top: 20px; left: 20px;
 		  background: transparent; border: none;
 		  font-size: 1.5rem; z-index: 10001;
 		  color: var(--text);
 		}
 		
-		/* Splash */
 		#splash-screen {
 		  position: fixed; inset: 0;
 		  background: var(--primary);
@@ -147,7 +139,6 @@
 		#splash-screen h1 { font-size: 2.5rem; margin-bottom: .5rem; }
 		#splash-screen p { font-size: 1.2rem; }
 		
-		/* Hero */
 		.hero {
 		  position: relative;
 		  background: url('https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg') center/cover no-repeat;
@@ -163,7 +154,6 @@
 		  font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 		}
 		
-		/* Intro */
 		#intro {
 		  background: #fff;
 		  padding: var(--spacing);
@@ -173,7 +163,6 @@
 		  margin-bottom: var(--spacing);
 		}
 		
-		/* Vídeos de Apoio */
 		#videos { margin-bottom: var(--spacing); }
 		.videos-grid {
 		  display: grid; gap: var(--spacing);
@@ -190,7 +179,6 @@
 		.video-container { position:relative; padding-bottom:56.25%; overflow:hidden; border-radius:var(--radius); }
 		.video-container iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 		
-		/* Plano de Segurança */
 		#plan { margin-bottom: var(--spacing); }
 		.plan-instruction { text-align:center; font-style:italic; margin-bottom:var(--spacing); }
 		.steps-grid {
@@ -212,7 +200,6 @@
 		  resize:none; maxlength:200;
 		}
 		
-		/* Ação */
 		.action-buttons {
 		  display:grid; grid-template-columns:repeat(3,var(--btn-width));
 		  gap:var(--spacing); justify-content:center; margin:var(--spacing) 0;
@@ -230,7 +217,6 @@
 		.crisis-btn { background:var(--crisis); }
 		.cvv-btn    { background:#34495e; }
 		
-		/* Ferramentas Terapêuticas */
 		#tools { margin-bottom: var(--spacing); }
 		.tools-grid {
 		  display:grid; gap:var(--spacing);
@@ -251,7 +237,6 @@
 		  border:none; border-radius:var(--radius); background:var(--accent);
 		  color:#fff; margin-top:var(--spacing);
 		}
-		/* removed fixed display:none: rely on hidden attribute */
 		.tool #breathing-container,
 		.tool #grounding-container {
 		  width:100%; position:relative;
@@ -260,7 +245,6 @@
 		}
 		.tool iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 		
-		/* Contato */
 		#contact { text-align:center; margin-bottom:var(--spacing); }
 		#contact textarea {
 		  width:100%; height:80px; padding:.5rem;
@@ -278,7 +262,6 @@
 		  #send-message { width:100% !important; }
 		}
 		
-		/* Flutuantes */
 		#share-page, #back-to-top {
 		  position:fixed; width:50px; height:50px; border-radius:50%;
 		  display:flex; align-items:center; justify-content:center;
@@ -287,7 +270,6 @@
 		#share-page { bottom:20px; left:20px; background:var(--whatsapp); }
 		#back-to-top { bottom:20px; right:20px; background:var(--primary); }
 		
-		/* Footer */
 		footer {
 		  background:#fff; padding:var(--spacing);
 		  text-align:center; font-size:.9rem;
@@ -317,7 +299,7 @@
 		<!-- Intro -->
 		<section id="intro">
 			<h3>Olá! Precisando de apoio?</h3>
-			<p> Este espaço é seu guia prático em momentos desafiadores: preencha seu plano, experimente cada ferramenta e saiba que pode contar comigo sempre que precisar. </p>
+			<p>Este espaço é seu guia prático em momentos desafiadores: preencha seu plano, experimente cada ferramenta e saiba que pode contar comigo sempre que precisar.</p>
 		</section>
 		<!-- Vídeos de Apoio -->
 		<section id="videos" aria-labelledby="videos-title">
@@ -346,7 +328,7 @@
 		<!-- Plano de Segurança -->
 		<section id="plan" aria-labelledby="plan-title">
 			<h2 id="plan-title">Plano de Segurança em 6 Etapas</h2>
-			<p class="plan-instruction"> Preencha cada etapa com o que faz sentido para você: identifique seus sinais, estratégias, ambientes seguros e pessoas de apoio. </p>
+			<p class="plan-instruction">Preencha cada etapa com o que faz sentido para você: identifique seus sinais, estratégias, ambientes seguros e pessoas de apoio.</p>
 			<div class="steps-grid">
 				<div class="plan-step">
 					<label for="signals-alert" class="sr-only">Sinais de alerta</label>
@@ -428,8 +410,12 @@
 		</section>
 	</main>
 	<!-- Flutuantes -->
-	<a id="share-page" href="https://api.whatsapp.com/send?text=Estou%20enviando%20este%20plano%20para%20você" target="_blank"><i class="fab fa-whatsapp"></i></a>
-	<a id="back-to-top" href="#top"><i class="fas fa-chevron-up"></i></a>
+	<a id="share-page" href="https://api.whatsapp.com/send?text=Ol%C3%A1%2C%20eu%20gostaria%20de%20compartilhar%20com%20voc%C3%AA%20este%20material%20superincr%C3%ADvel%2C%20que%20pode%20ser%20%C3%BAtil%20para%20voc%C3%AA%3A%20https%3A%2F%2Fricmurtapsicologia.github.io%2Fplanosegurancaemocional%2F%3Futm_source%3Dwhatsapp%26utm_medium%3Dshare%26utm_campaign%3Dplano_seguranca" target="_blank" aria-label="Compartilhar via WhatsApp">
+		<i class="fab fa-whatsapp"></i>
+	</a>
+	<a id="back-to-top" href="#top" aria-label="Voltar ao topo">
+		<i class="fas fa-chevron-up"></i>
+	</a>
 	<!-- Footer -->
 	<footer role="contentinfo">
 		<p>&copy; Richelmy Murta, Psicólogo Clínico</p>
@@ -461,72 +447,66 @@
 		      });
 		  });
 		
-		  // PDF generation with feedback & loading spinner
+		  // PDF geração com feedback & spinner
 		  const notif = document.getElementById('notification');
 		  const ovl = document.getElementById('overlay');
 		  document.getElementById('generate-pdf')
 		    .addEventListener('click', async () => {
-		      // truncate inputs
 		      document.querySelectorAll('textarea').forEach(t => {
 		        if (t.value.length > 200) t.value = t.value.slice(0, 200);
 		      });
 		
-		      // show spinner & notification
 		      ovl.removeAttribute('hidden');
 		      notif.textContent = 'Seu PDF está sendo preparado…';
 		      notif.removeAttribute('hidden');
-		
-		      // allow spinner to render
 		      await new Promise(r => setTimeout(r, 50));
 		
-		      // generate PDF (mesma lógica original)
 		      const { jsPDF } = window.jspdf;
 		      const doc = new jsPDF();
 		      let y = 20, margin = 20;
 		      doc.setFontSize(18);
-		      doc.text('Plano de Segurança Emocional', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
+		      doc.text('Plano de Segurança Emocional', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
 		      y += 12;
 		      doc.setFontSize(12);
 		      const intro = 'Este Plano de Segurança Emocional é uma ferramenta prática para usar quando a crise se aproxima. Ele ajuda a identificar sinais, listar estratégias de enfrentamento, distrações saudáveis, rede de apoio, contatos de emergência e tornar o ambiente seguro.';
-		      doc.text(intro, margin, y, { maxWidth: 168, align: 'justify' });
+		      doc.text(intro, margin, y, { maxWidth:168, align:'justify' });
 		      y += 30;
 		      document.querySelectorAll('.plan-step').forEach((step, i) => {
 		        const title = step.querySelector('h3').innerText;
 		        const val = step.querySelector('textarea').value || '---';
-		        doc.setFont(undefined, 'bold');
-		        doc.text(`${i + 1}. ${title}`, margin, y);
+		        doc.setFont(undefined,'bold');
+		        doc.text(`${i+1}. ${title}`, margin, y);
 		        y += 6;
-		        doc.setFont(undefined, 'normal');
-		        doc.text(val, margin + 4, y, { maxWidth: 168, align: 'justify' });
+		        doc.setFont(undefined,'normal');
+		        doc.text(val, margin+4, y, { maxWidth:168, align:'justify' });
 		        y += 20;
 		      });
 		      const vids = [
-		        ['Música Calmante', 'https://youtu.be/EMiDYIVhpKA'],
-		        ['Crise de Ansiedade', 'https://youtu.be/AMu9YYKB3YU'],
-		        ['Sem Vontade de Viver', 'https://youtu.be/7rjk9gANBP4'],
-		        ['Respiração Quadrada', 'https://youtu.be/85pQAwyNgYI'],
-		        ['Grounding Guiado', 'https://youtu.be/ov4gq0PnzzA']
+		        ['Música Calmante','https://youtu.be/EMiDYIVhpKA'],
+		        ['Crise de Ansiedade','https://youtu.be/AMu9YYKB3YU'],
+		        ['Sem Vontade de Viver','https://youtu.be/7rjk9gANBP4'],
+		        ['Respiração Quadrada','https://youtu.be/85pQAwyNgYI'],
+		        ['Grounding Guiado','https://youtu.be/ov4gq0PnzzA']
 		      ];
-		      doc.setFont(undefined, 'bold');
+		      doc.setFont(undefined,'bold');
 		      doc.text('Links de Vídeos:', margin, y);
 		      y += 6;
-		      doc.setFont(undefined, 'normal');
-		      vids.forEach(([t, l]) => {
-		        doc.text(`${t}: ${l}`, margin + 4, y);
+		      doc.setFont(undefined,'normal');
+		      vids.forEach(([t,l]) => {
+		        doc.text(`${t}: ${l}`, margin+4, y);
 		        y += 6;
 		      });
 		      y += 10;
 		      const concl = 'Parabéns por usar este plano! Mantenha-o sempre à mão e revise suas respostas quando sentir necessidade. Este guia é seu aliado na busca por estabilidade emocional e segurança. Você não está sozinho — conte sempre com apoio.';
-		      doc.text(concl, margin, y, { maxWidth: 168, align: 'justify' });
+		      doc.text(concl, margin, y, { maxWidth:168, align:'justify' });
 		      y += 30;
-		      doc.text('Richelmy Murta, Psicólogo Clínico', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
+		      doc.text('Richelmy Murta, Psicólogo Clínico', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
 		      y += 6; doc.setFontSize(10);
-		      doc.text('Especialista em Terapia Cognitivo-Comportamental', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
+		      doc.text('Especialista em Terapia Cognitivo-Comportamental', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
 		      y += 6;
-		      doc.text('35 98464‑0729', doc.internal.pageSize.getWidth() / 2, y, { align: 'center' });
+		      doc.text('35 98464‑0729', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
 		      doc.save('Plano-de-Segurança.pdf');
 		
-		      // hide spinner, update notification
 		      ovl.setAttribute('hidden', '');
 		      notif.textContent = 'Pronto! Verifique seus downloads.';
 		      setTimeout(() => notif.setAttribute('hidden', ''), 5000);
@@ -536,11 +516,12 @@
 		  document.getElementById('cvv-btn')
 		    .addEventListener('click', () => window.location.href = 'https://cvv.org.br/');
 		
-		  // Enviar mensagem
+		  // Enviar mensagem com saudação padrão
 		  document.getElementById('send-message')
 		    .addEventListener('click', () => {
-		      const msg = encodeURIComponent(document.getElementById('user-message').value);
-		      window.open(`https://api.whatsapp.com/send?phone=5535984640729&text=${msg}`);
+		      const userText = encodeURIComponent(document.getElementById('user-message').value);
+		      const prefix = encodeURIComponent('Oi! Eu acessei seu Plano de Segurança Emocional e gostaria de dizer que: ');
+		      window.open(`https://api.whatsapp.com/send?phone=5535984640729&text=${prefix}${userText}`);
 		    });
 		});
 	</script>
