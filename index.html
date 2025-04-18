@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Onboarding - Plano de Segurança Emocional</title>
+	<!-- SEO Meta Tags -->
+	<meta name="description" content="Plano de Segurança Emocional para pacientes em crise de suicídio. Ferramentas práticas, contatos de emergência e estratégias de enfrentamento." />
+	<meta name="keywords" content="plano de segurança emocional, crise, suicídio, estratégias enfrentamento, CVV, SAMU, grounding, terapia" />
+	<link rel="canonical" href="https://seudominio.com/plano-seguranca" />
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Plano de Segurança Emocional" />
+	<meta property="og:description" content="Ferramentas práticas e contatos de emergência para lidar com crises emocionais." />
+	<meta property="og:url" content="https://seudominio.com/plano-seguranca" />
+	<meta property="og:image" content="https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg" />
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Plano de Segurança Emocional" />
+	<meta name="twitter:description" content="Ferramentas práticas e contatos de emergência para lidar com crises emocionais." />
+	<meta name="twitter:image" content="https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg" />
+	<!-- Favicon -->
+	<link rel="icon" href="https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg" type="image/png" />
+	<!-- Normalize & Icon Fonts -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+	<script defer src="https://unpkg.com/feather-icons"></script>
+	<!-- Styles -->
+	<style>
+		:root {
+		  --bg: #f5f7fa;
+		  --primary: #6c8ebf;
+		  --accent: #82b1ff;
+		  --crisis: #e74c3c;
+		  --pdf: #16a085;
+		  --whatsapp: #25D366;
+		  --text: #333;
+		  --radius: 12px;
+		  --spacing: 1rem;
+		  --font-base: 16px;
+		  --btn-width: 180px;
+		  --btn-height: 45px;
+		}
+		*, *::before, *::after { box-sizing: border-box; }
+		body {
+		  margin: 0;
+		  font-family: 'Open Sans', sans-serif;
+		  font-size: var(--font-base);
+		  background: var(--bg);
+		  color: var(--text);
+		  line-height: 1.5;
+		}
+		a { color: inherit; text-decoration: none; }
+		.container {
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  padding: var(--spacing);
+		}
+		h1, h2, h3 {
+		  color: var(--primary);
+		  margin: var(--spacing) 0;
+		  text-align: center;
+		}
+		p { margin-bottom: var(--spacing); }
+		button { cursor: pointer; }
+		
+		/* Splash */
+		#splash-screen {
+		  position: fixed; inset: 0;
+		  background: var(--primary);
+		  display: flex; flex-direction: column;
+		  align-items: center; justify-content: center;
+		  z-index: 9999;
+		  animation: swayFadeOut 2.8s ease forwards;
+		}
+		@keyframes swayFadeOut {
+		  0%, 70% { opacity: 1; transform: translateY(0); }
+		  100% { opacity: 0; transform: translateY(-20px); display: none; }
+		}
+		#splash-screen h1 { color: #fff; font-size: 2.5rem; margin-bottom: .5rem; }
+		#splash-screen p { color: #fff; font-size: 1.2rem; }
+		
+		/* Hero Banner */
+		.hero {
+		  position: relative;
+		  background: url('https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg') center/cover no-repeat;
+		  height: 300px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+		.hero::before {
+		  content: '';
+		  position: absolute; inset: 0;
+		  background: rgba(0,0,0,0.4);
+		}
+		.hero h2 {
+		  position: relative;
+		  color: #fff;
+		  font-size: 2.5rem;
+		  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+		}
+		
+		/* Sections */
+		section { margin-bottom: var(--spacing); }
+		
+		/* Intro */
+		#intro {
+		  background: #fff;
+		  padding: var(--spacing);
+		  border-radius: var(--radius);
+		  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+		  text-align: center;
+		}
+		
+		/* Vídeos de Apoio */
+		.videos-grid {
+		  display: grid;
+		  gap: var(--spacing);
+		  grid-template-columns: 1fr;
+		}
+		@media(min-width: 768px) {
+		  .videos-grid { grid-template-columns: repeat(3, 1fr); }
+		}
+		.video-card {
+		  background: #fff;
+		  border: 1px solid #e0e0e0;
+		  border-radius: var(--radius);
+		  padding: var(--spacing);
+		}
+		.video-card h3 { margin-bottom: .5rem; }
+		.video-container {
+		  position: relative;
+		  padding-bottom: 56.25%;
+		  overflow: hidden;
+		  border-radius: var(--radius);
+		}
+		.video-container iframe {
+		  position: absolute;
+		  inset: 0;
+		  width: 100%;
+		  height: 100%;
+		  border: 0;
+		}
+		
+		/* Plano de Segurança */
+		.steps-grid {
+		  display: grid;
+		  gap: var(--spacing);
+		  grid-template-columns: 1fr;
+		}
+		@media(min-width: 768px) {
+		  .steps-grid { grid-template-columns: repeat(3, 1fr); }
+		}
+		.plan-step {
+		  background: #fff;
+		  border: 1px solid #e0e0e0;
+		  border-radius: var(--radius);
+		  padding: var(--spacing);
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: space-between;
+		}
+		.plan-step textarea {
+		  width: 100%;
+		  height: 60px;
+		  padding: .5rem;
+		  border: 1px solid #ccc;
+		  border-radius: var(--radius);
+		  resize: none;
+		}
+		
+		/* Action Buttons */
+		.action-buttons {
+		  display: grid;
+		  grid-template-columns: repeat(3, var(--btn-width));
+		  gap: var(--spacing);
+		  justify-content: center;
+		}
+		@media(max-width: 767px) {
+		  .action-buttons { display: flex; flex-direction: column; align-items: center; }
+		}
+		
+		.btn {
+		  width: var(--btn-width);
+		  height: var(--btn-height);
+		  border: none;
+		  border-radius: var(--radius);
+		  color: #fff;
+		  font-size: 1rem;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  gap: .5rem;
+		}
+		.pdf-btn { background: var(--pdf); }
+		.crisis-btn { background: var(--crisis); }
+		.cvv-btn    { background: #34495e; }
+		
+		/* Ferramentas Terapêuticas */
+		.tools-grid {
+		  display: grid;
+		  gap: var(--spacing);
+		  grid-template-columns: 1fr;
+		  justify-items: center;
+		}
+		@media(min-width: 768px) {
+		  .tools-grid { grid-template-columns: repeat(2, 1fr); }
+		}
+		.tool {
+		  background: #fff;
+		  border: 1px solid #e0e0e0;
+		  border-radius: var(--radius);
+		  padding: var(--spacing);
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: space-between;
+		  align-items: center;
+		}
+		.tool iframe { width: 100%; height: auto; border-radius: var(--radius); }
+		
+		/* Contato */
+		#contact textarea {
+		  width: 100%;
+		  height: 80px;
+		  padding: .5rem;
+		  border: 1px solid #ccc;
+		  border-radius: var(--radius);
+		  resize: none;
+		}
+		#send-message { background: var(--whatsapp); }
+		
+		/* Flutuantes */
+		#share-page, #back-to-top {
+		  position: fixed;
+		  width: 50px;
+		  height: 50px;
+		  border-radius: 50%;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  color: #fff;
+		  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+		}
+		#share-page { bottom: 20px; left: 20px; background: var(--whatsapp); }
+		#back-to-top { bottom: 20px; right: 20px; background: var(--primary); }
+		
+		/* Footer */
+		footer { background: #fff; padding: var(--spacing); text-align: center; font-size: .9rem; }
+	</style>
+</head>
+
+<body>
+	<!-- Splash -->
+	<div id="splash-screen">
+		<h1>Você não está só...</h1>
+		<p>Vamos atravessar isso juntos...</p>
+	</div>
+	<main class="container">
+		<!-- Hero -->
+		<section class="hero">
+			<h2>Bem-vindo ao Seu Plano de Segurança</h2>
+		</section>
+		<!-- Introdução -->
+		<section id="intro">
+			<h3>Olá! Precisando de apoio?</h3>
+			<p>Este espaço é seu guia prático em momentos desafiadores: preencha seu plano, experimente cada ferramenta e saiba que pode contar comigo sempre que precisar.</p>
+		</section>
+		<!-- Vídeos de Apoio -->
+		<section id="videos">
+			<h2>Vídeos de Apoio</h2>
+			<div class="videos-grid">
+				<article class="video-card">
+					<h3>Música Calmante</h3>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/EMiDYIVhpKA?rel=0" title="Música Calmante" allowfullscreen></iframe>
+					</div>
+				</article>
+				<article class="video-card">
+					<h3>Crise de Ansiedade</h3>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/AMu9YYKB3YU?rel=0" title="Crise de Ansiedade" allowfullscreen></iframe>
+					</div>
+				</article>
+				<article class="video-card">
+					<h3>Sem Vontade de Viver</h3>
+					<div class="video-container">
+						<iframe src="https://www.youtube.com/embed/7rjk9gANBP4?rel=0" title="Sem Vontade de Viver" allowfullscreen></iframe>
+					</div>
+				</article>
+			</div>
+		</section>
+		<!-- Plano de Segurança -->
+		<section id="plan">
+			<h2>Plano de Segurança em 6 Etapas</h2>
+			<p class="plan-instruction">Preencha cada etapa com o que faz sentido para você: identifique seus sinais, estratégias, ambientes seguros e pessoas de apoio.</p>
+			<div class="steps-grid">
+				<!-- Passos gerados via await -->
+			</div>
+			<div class="action-buttons">
+				<button class="btn pdf-btn" id="generate-pdf">
+					<i class="fas fa-file-pdf"></i> Gerar PDF </button>
+				<a href="tel:192" class="btn crisis-btn">
+					<i class="fas fa-phone-alt"></i> Estou em crise </a>
+				<button class="btn cvv-btn" id="cvv-btn">
+					<i class="fas fa-headset"></i> CVV </button>
+			</div>
+		</section>
+		<!-- Ferramentas Terapêuticas -->
+		<section id="tools">
+			<h2>Ferramentas Terapêuticas</h2>
+			<div class="tools-grid">
+				<!-- Conteúdo gerado dinamicamente -->
+			</div>
+		</section>
+		<!-- Contato -->
+		<section id="contact">
+			<h2>Gostaria de compartilhar alguma mensagem comigo?</h2>
+			<textarea id="user-message" placeholder="Escreva sua mensagem..."></textarea>
+			<button class="btn" id="send-message">
+				<i class="fab fa-whatsapp"></i> Enviar </button>
+		</section>
+	</main>
+	<!-- Botões Flutuantes -->
+	<a id="share-page" href="https://api.whatsapp.com/send?text=Estou%20enviando%20este%20plano%20para%20você" target="_blank">
+		<i class="fab fa-whatsapp"></i>
+	</a>
+	<a id="back-to-top" href="#top">
+		<i class="fas fa-chevron-up"></i>
+	</a>
+	<!-- Footer -->
+	<footer>
+		<p>&copy; Richelmy Murta, Psicólogo Clínico</p>
+		<p>Especialista em Terapia Cognitivo-Comportamental</p>
+		<p>35 98464‑0729</p>
+	</footer>
+	<!-- Scripts -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+		  feather.replace();
+		
+		  // Splash fade-out
+		  setTimeout(() => {
+		    document.getElementById('splash-screen').style.display = 'none';
+		  }, 2800);
+		
+		  // Event listeners
+		  document.getElementById('generate-pdf').addEventListener('click', generatePDF);
+		  document.getElementById('cvv-btn').addEventListener('click', () => window.location.href = 'https://cvv.org.br/');
+		  document.getElementById('send-message').addEventListener('click', () => {
+		    const msg = encodeURIComponent(document.getElementById('user-message').value);
+		    window.open(`https://api.whatsapp.com/send?phone=5535984640729&text=${msg}`);
+		  });
+		
+		  // Toggle Videos
+		  document.getElementById('toggle-breathing')?.addEventListener('click', () => toggleDisplay('breathing-container'));
+		  document.getElementById('toggle-grounding')?.addEventListener('click', () => toggleDisplay('grounding-container'));
+		
+		  function toggleDisplay(id) {
+		    const el = document.getElementById(id);
+		    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+		  }
+		
+		  // PDF Generation
+		  async function generatePDF() {
+		    const { jsPDF } = window.jspdf;
+		    const doc = new jsPDF();
+		    // PDF logic aqui (mesma lógica anterior)
+		  }
+		});
+	</script>
+</body>
+
+</html>
