@@ -1,530 +1,263 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<!-- Primary Meta Tags -->
-	<title>Onboarding – Plano de Segurança Emocional</title>
-	<meta name="description" content="Plano de Segurança Emocional para pacientes em crise de suicídio. Ferramentas práticas, contatos de emergência e estratégias de enfrentamento." />
-	<meta name="keywords" content="plano de segurança emocional, crise, suicídio, estratégias de enfrentamento, CVV, SAMU, grounding, terapia cognitivo-comportamental" />
-	<link rel="canonical" href="https://ricmurtapsicologia.github.io/planosegurancaemocional/" />
-	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Plano de Segurança Emocional" />
-	<meta property="og:description" content="Ferramentas práticas e contatos de emergência para lidar com crises emocionais." />
-	<meta property="og:url" content="https://ricmurtapsicologia.github.io/planosegurancaemocional/?utm_source=whatsapp&utm_medium=share&utm_campaign=plano_seguranca" />
-	<meta property="og:image" content="https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg" />
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Plano de Segurança Emocional" />
-	<meta name="twitter:description" content="Ferramentas práticas e contatos de emergência para lidar com crises emocionais." />
-	<meta name="twitter:image" content="https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg" />
-	<!-- Favicon -->
-	<link rel="icon" href="https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg" type="image/png" />
-	<!-- Normalize & Icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
-	<script defer src="https://unpkg.com/feather-icons"></script>
-	<style>
-		[hidden] { display: none !important; }
-		
-		:root {
-		  --bg: #f5f7fa;
-		  --primary: #6c8ebf;
-		  --accent: #82b1ff;
-		  --crisis: #e74c3c;
-		  --pdf: #16a085;
-		  --whatsapp: #25d366;
-		  --text: #333;
-		  --radius: 12px;
-		  --spacing: 1rem;
-		  --font-base: 16px;
-		  --btn-width: 180px;
-		  --btn-height: 45px;
-		}
-		body.dark {
-		  --bg: #222;
-		  --text: #f5f7fa;
-		  --primary: #82b1ff;
-		}
-		body.dark #intro,
-		body.dark .video-card,
-		body.dark .plan-step,
-		body.dark .tool,
-		body.dark footer {
-		  background: var(--bg);
-		  color: var(--text);
-		}
-		
-		*, *::before, *::after { box-sizing: border-box; }
-		body {
-		  margin: 0;
-		  font-family: 'Open Sans', sans-serif;
-		  font-size: var(--font-base);
-		  background: var(--bg);
-		  color: var(--text);
-		  line-height: 1.5;
-		}
-		a, button { outline-offset: 2px; }
-		a:focus, button:focus { outline: 2px solid var(--accent); }
-		.sr-only {
-		  position: absolute;
-		  width: 1px; height: 1px;
-		  padding: 0; margin: -1px;
-		  overflow: hidden; clip: rect(0,0,0,0);
-		  white-space: nowrap; border: 0;
-		}
-		
-		.container {
-		  max-width: 1200px;
-		  margin: 0 auto;
-		  padding: var(--spacing);
-		}
-		h2, h3 { color: var(--primary); margin: var(--spacing) 0; text-align: center; }
-		p { margin-bottom: var(--spacing); }
-		button { cursor: pointer; }
-		
-		.no-js-warning {
-		  background: var(--crisis);
-		  color: #fff;
-		  text-align: center;
-		  padding: var(--spacing);
-		}
-		
-		.notification {
-		  position: fixed;
-		  top: 20px; right: 20px;
-		  background: #333; color: #fff;
-		  padding: .5rem 1rem;
-		  border-radius: var(--radius);
-		  z-index: 10000;
-		}
-		.overlay {
-		  position: fixed; inset: 0;
-		  background: rgba(0,0,0,0.5);
-		  display: flex; align-items: center; justify-content: center;
-		  z-index: 9998;
-		}
-		.spinner {
-		  width: 50px; height: 50px;
-		  border: 5px solid #f3f3f3;
-		  border-top: 5px solid var(--accent);
-		  border-radius: 50%;
-		  animation: spin 1s linear infinite;
-		}
-		@keyframes spin { to { transform: rotate(360deg); } }
-		
-		.theme-toggle {
-		  position: fixed; top: 20px; left: 20px;
-		  background: transparent; border: none;
-		  font-size: 1.5rem; z-index: 10001;
-		  color: var(--text);
-		}
-		
-		#splash-screen {
-		  position: fixed; inset: 0;
-		  background: var(--primary);
-		  display: flex; flex-direction: column;
-		  align-items: center; justify-content: center;
-		  z-index: 9999;
-		  animation: swayFadeOut 2.8s ease forwards;
-		}
-		@keyframes swayFadeOut {
-		  0%,70% { opacity: 1; transform: translateY(0); }
-		  100% { opacity: 0; transform: translateY(-20px); }
-		}
-		#splash-screen h1, #splash-screen p { color: #fff; }
-		#splash-screen h1 { font-size: 2.5rem; margin-bottom: .5rem; }
-		#splash-screen p { font-size: 1.2rem; }
-		
-		.hero {
-		  position: relative;
-		  background: url('https://i.pinimg.com/736x/be/0a/95/be0a959dd16259e31a331353e3c86810.jpg') center/cover no-repeat;
-		  height: 300px;
-		  display: flex; align-items: center; justify-content: center;
-		}
-		.hero::before {
-		  content:''; position: absolute; inset: 0;
-		  background: rgba(0,0,0,0.4);
-		}
-		.hero h2 {
-		  position: relative; color: #fff;
-		  font-size: 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-		}
-		
-		#intro {
-		  background: #fff;
-		  padding: var(--spacing);
-		  border-radius: var(--radius);
-		  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-		  text-align: center;
-		  margin-bottom: var(--spacing);
-		}
-		
-		#videos { margin-bottom: var(--spacing); }
-		.videos-grid {
-		  display: grid; gap: var(--spacing);
-		  grid-template-columns: 1fr; align-items: stretch;
-		}
-		@media(min-width:768px) {
-		  .videos-grid { grid-template-columns: repeat(3,1fr); }
-		}
-		.video-card {
-		  background:#fff; border:1px solid #e0e0e0;
-		  border-radius:var(--radius); padding:var(--spacing);
-		}
-		.video-card h3 { margin-bottom:.5rem; font-size:1.1rem; }
-		.video-container { position:relative; padding-bottom:56.25%; overflow:hidden; border-radius:var(--radius); }
-		.video-container iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-		
-		#plan { margin-bottom: var(--spacing); }
-		.plan-instruction { text-align:center; font-style:italic; margin-bottom:var(--spacing); }
-		.steps-grid {
-		  display:grid; gap:var(--spacing); grid-template-columns:1fr;
-		  align-items:stretch;
-		}
-		@media(min-width:768px) { .steps-grid { grid-template-columns:repeat(3,1fr); } }
-		.plan-step {
-		  background:#fff; border:1px solid #e0e0e0; border-radius:var(--radius);
-		  padding:var(--spacing); display:flex; flex-direction:column;
-		  justify-content:space-between; height:100%;
-		}
-		.plan-step i { align-self:center; margin-bottom:.5rem; stroke:var(--primary); }
-		.plan-step h3 { text-align:center; font-size:1.1rem; margin-bottom:.5rem; }
-		.plan-step .step-guide { font-size:.9rem; text-align:left; margin-bottom:.5rem; color:#555; }
-		.plan-step textarea {
-		  width:100%; height:60px; padding:.5rem;
-		  border:1px solid #ccc; border-radius:var(--radius);
-		  resize:none; maxlength:200;
-		}
-		
-		.action-buttons {
-		  display:grid; grid-template-columns:repeat(3,var(--btn-width));
-		  gap:var(--spacing); justify-content:center; margin:var(--spacing) 0;
-		}
-		@media(max-width:767px) {
-		  .action-buttons { display:flex; flex-direction:column; align-items:center; }
-		}
-		.btn {
-		  width:var(--btn-width); height:var(--btn-height);
-		  border:none; border-radius:var(--radius); color:#fff;
-		  font-size:1rem; display:flex; align-items:center;
-		  justify-content:center; gap:.5rem;
-		}
-		.pdf-btn    { background:var(--pdf); }
-		.crisis-btn { background:var(--crisis); }
-		.cvv-btn    { background:#34495e; }
-		
-		#tools { margin-bottom: var(--spacing); }
-		.tools-grid {
-		  display:grid; gap:var(--spacing);
-		  grid-template-columns:1fr; justify-items:center; align-items:stretch;
-		}
-		@media(min-width:768px) {
-		  .tools-grid { grid-template-columns:repeat(2,1fr); }
-		}
-		.tool {
-		  background:#fff; border:1px solid #e0e0e0; border-radius:var(--radius);
-		  padding:var(--spacing); display:flex; flex-direction:column;
-		  justify-content:space-between; align-items:center; height:100%;
-		}
-		.tool h3 { text-align:center; margin-bottom:.5rem; }
-		.tool .tool-guide { text-align:justify; margin-bottom:var(--spacing); }
-		.tool .btn {
-		  width:var(--btn-width); height:var(--btn-height);
-		  border:none; border-radius:var(--radius); background:var(--accent);
-		  color:#fff; margin-top:var(--spacing);
-		}
-		.tool #breathing-container,
-		.tool #grounding-container {
-		  width:100%; position:relative;
-		  padding-bottom:56.25%; overflow:hidden; border-radius:var(--radius);
-		  margin-top:var(--spacing);
-		}
-		.tool iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-		
-		#contact { text-align:center; margin-bottom:var(--spacing); }
-		#contact textarea {
-		  width:100%; height:80px; padding:.5rem;
-		  border:1px solid #ccc; border-radius:var(--radius);
-		  resize:none; maxlength:200; margin-bottom:var(--spacing);
-		}
-		#send-message {
-		  width:var(--btn-width); height:var(--btn-height);
-		  background:var(--whatsapp); color:#fff;
-		  border:none; border-radius:var(--radius);
-		  font-size:1rem; display:flex; align-items:center;
-		  justify-content:center; margin:0 auto;
-		}
-		@media(max-width:767px) {
-		  #send-message { width:100% !important; }
-		}
-		
-		#share-page, #back-to-top {
-		  position:fixed; width:50px; height:50px; border-radius:50%;
-		  display:flex; align-items:center; justify-content:center;
-		  color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.3);
-		}
-		#share-page { bottom:20px; left:20px; background:var(--whatsapp); }
-		#back-to-top { bottom:20px; right:20px; background:var(--primary); }
-		
-		footer {
-		  background:#fff; padding:var(--spacing);
-		  text-align:center; font-size:.9rem;
-		}
-	</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f5f59">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Plano de Segurança Emocional para organizar apoio, estratégias e próximos passos em momentos de crise.">
+  <title>Plano de Segurança Emocional | Richelmy Murta · Psicologia Clínica</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
 </head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<body id="top" data-theme="light">
-	<noscript>
-		<div class="no-js-warning" role="alert"> Este recurso requer JavaScript para funcionar corretamente. </div>
-	</noscript>
-	<button id="toggle-theme" class="theme-toggle" aria-label="Alternar modo noturno">🌓</button>
-	<div id="notification" class="notification" role="status" aria-live="polite" hidden></div>
-	<div id="overlay" class="overlay" hidden>
-		<div class="spinner"></div>
-	</div>
-	<div id="splash-screen">
-		<h1>Você não está só...</h1>
-		<p>Vamos atravessar isso juntos...</p>
-	</div>
-	<header role="banner">
-		<section class="hero">
-			<h2>Bem-vindo ao Seu Plano de Segurança</h2>
-		</section>
-	</header>
-	<main role="main" class="container">
-		<!-- Intro -->
-		<section id="intro">
-			<h3>Olá! Precisando de apoio?</h3>
-			<p>Este espaço é seu guia prático em momentos desafiadores: preencha seu plano, experimente cada ferramenta e saiba que pode contar comigo se precisar.</p>
-		</section>
-		<!-- Vídeos de Apoio -->
-		<section id="videos" aria-labelledby="videos-title">
-			<h2 id="videos-title">Vídeos de Apoio</h2>
-			<div class="videos-grid">
-				<div class="video-card">
-					<h3>Música Calmante</h3>
-					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/EMiDYIVhpKA?rel=0&modestbranding=1" title="Música Calmante" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-				<div class="video-card">
-					<h3>Crise de Ansiedade</h3>
-					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/AMu9YYKB3YU?rel=0&modestbranding=1" title="Crise de Ansiedade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-				<div class="video-card">
-					<h3>Sem Vontade de Viver</h3>
-					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/7rjk9gANBP4?rel=0&modestbranding=1" title="Sem Vontade de Viver" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Plano de Segurança -->
-		<section id="plan" aria-labelledby="plan-title">
-			<h2 id="plan-title">Plano de Segurança em 6 Etapas</h2>
-			<p class="plan-instruction">Preencha cada etapa com o que faz sentido para você: identifique seus sinais, estratégias, ambientes seguros e pessoas de apoio.</p>
-			<div class="steps-grid">
-				<div class="plan-step">
-					<label for="signals-alert" class="sr-only">Sinais de alerta</label>
-					<i data-feather="alert-circle"></i>
-					<h3>1. Sinais de alerta</h3>
-					<p class="step-guide">Descreva seus primeiros sinais, ex: pensamentos negativos, batimentos acelerados.</p>
-					<textarea id="signals-alert" placeholder="Liste seus sinais de alerta" maxlength="200"></textarea>
-				</div>
-				<div class="plan-step">
-					<label for="strategies" class="sr-only">Estratégias de enfrentamento</label>
-					<i data-feather="tool"></i>
-					<h3>2. Estratégias de enfrentamento</h3>
-					<p class="step-guide">Anote técnicas imediatas, ex: respirar fundo, caminhar, ouvir música suave.</p>
-					<textarea id="strategies" placeholder="Descreva suas estratégias" maxlength="200"></textarea>
-				</div>
-				<div class="plan-step">
-					<label for="distractions" class="sr-only">Distrações</label>
-					<i data-feather="map-pin"></i>
-					<h3>3. Distrações</h3>
-					<p class="step-guide">Liste lugares ou pessoas, ex: parque, amigo confidencial, clube de leitura.</p>
-					<textarea id="distractions" placeholder="Ex: amigo João, parque" maxlength="200"></textarea>
-				</div>
-				<div class="plan-step">
-					<label for="support-network" class="sr-only">Rede de apoio</label>
-					<i data-feather="users"></i>
-					<h3>4. Rede de apoio</h3>
-					<p class="step-guide">Informe contatos úteis, ex: mãe (xx) xxxx-xxxx, terapeuta, grupo de apoio.</p>
-					<textarea id="support-network" placeholder="Ex: mãe (xx) xxxx-xxxx" maxlength="200"></textarea>
-				</div>
-				<div class="plan-step">
-					<label for="emergency-services" class="sr-only">Serviços de emergência</label>
-					<i data-feather="phone"></i>
-					<h3>5. Serviços de emergência</h3>
-					<p class="step-guide">Liste contatos de emergência, ex: SAMU (192), CVV (188), Corpo de Bombeiros (193).</p>
-					<textarea id="emergency-services" placeholder="Ex: CAPS BH" maxlength="200"></textarea>
-				</div>
-				<div class="plan-step">
-					<label for="safe-environment" class="sr-only">Ambiente seguro</label>
-					<i data-feather="shield"></i>
-					<h3>6. Ambiente seguro</h3>
-					<p class="step-guide">Descreva formas de tornar seu espaço acolhedor e seguro, como remover riscos e contar com supervisão de pessoas de confiança.</p>
-					<textarea id="safe-environment" placeholder="Como tornar o ambiente seguro" maxlength="200"></textarea>
-				</div>
-			</div>
-			<div class="action-buttons">
-				<button class="btn pdf-btn" id="generate-pdf"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
-				<a href="tel:192" class="btn crisis-btn"><i class="fas fa-phone-alt"></i> Estou em crise</a>
-				<button class="btn cvv-btn" id="cvv-btn"><i class="fas fa-headset"></i> CVV</button>
-			</div>
-		</section>
-		<!-- Ferramentas Terapêuticas -->
-		<section id="tools" aria-labelledby="tools-title">
-			<h2 id="tools-title">Ferramentas Terapêuticas</h2>
-			<div class="tools-grid">
-				<div class="tool">
-					<h3>Respiração Quadrada</h3>
-					<p class="tool-guide">Este exercício guia você a respirar de forma ritmada: inspire contando mentalmente até quatro, segure o ar por quatro segundos, expire lentamente contando até quatro e mantenha os pulmões vazios por mais quatro segundos. Repita conforme sentir necessidade.</p>
-					<button class="btn" id="toggle-breathing">Saiba mais aqui</button>
-					<div id="breathing-container" hidden>
-						<iframe src="https://www.youtube.com/embed/85pQAwyNgYI?rel=0&modestbranding=1" allowfullscreen></iframe>
-					</div>
-				</div>
-				<div class="tool">
-					<h3>Técnica de Grounding</h3>
-					<p class="tool-guide">Este exercício ajuda a ancorar você no presente: nomeie cinco coisas que vê, toque quatro texturas diferentes, escute três sons distintos, identifique dois cheiros e saboreie um gosto para trazer foco ao aqui e agora.</p>
-					<button class="btn" id="toggle-grounding">Saiba mais aqui</button>
-					<div id="grounding-container" hidden>
-						<iframe src="https://www.youtube.com/embed/ov4gq0PnzzA?rel=0&modestbranding=1" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Contato -->
-		<section id="contact" aria-labelledby="contact-title">
-			<h2 id="contact-title">Gostaria de compartilhar alguma mensagem comigo?</h2>
-			<label for="user-message" class="sr-only">Mensagem para Richelmy Murta</label>
-			<textarea id="user-message" placeholder="Escreva sua mensagem..." maxlength="200"></textarea>
-			<button class="btn" id="send-message"><i class="fab fa-whatsapp"></i> Enviar</button>
-		</section>
-	</main>
-	<!-- Flutuantes -->
-	<a id="share-page" href="https://api.whatsapp.com/send?text=Ol%C3%A1%2C%20eu%20gostaria%20de%20compartilhar%20com%20voc%C3%AA%20este%20material%20superincr%C3%ADvel%2C%20que%20pode%20ser%20%C3%BAtil%20para%20voc%C3%AA%3A%20https%3A%2F%2Fricmurtapsicologia.github.io%2Fplanosegurancaemocional%2F%3Futm_source%3Dwhatsapp%26utm_medium%3Dshare%26utm_campaign%3Dplano_seguranca" target="_blank" aria-label="Compartilhar via WhatsApp">
-		<i class="fab fa-whatsapp"></i>
-	</a>
-	<a id="back-to-top" href="#top" aria-label="Voltar ao topo">
-		<i class="fas fa-chevron-up"></i>
-	</a>
-	<!-- Footer -->
-	<footer role="contentinfo">
-		<p>&copy; Richelmy Murta, Psicólogo Clínico</p>
-		<p>Especialista em Terapia Cognitivo-Comportamental</p>
-		<p>35 98464‑0729</p>
-	</footer>
-	<!-- jsPDF & html2canvas -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-		  feather.replace();
-		
-		  // alternar tema
-		  document.getElementById('toggle-theme')
-		    .addEventListener('click', () => document.body.classList.toggle('dark'));
-		
-		  // splash fade-out
-		  setTimeout(() => {
-		    document.getElementById('splash-screen').style.display = 'none';
-		  }, 2800);
-		
-		  // toggle ferramentas
-		  ['breathing', 'grounding'].forEach(id => {
-		    document.getElementById('toggle-' + id)
-		      .addEventListener('click', () => {
-		        const el = document.getElementById(id + '-container');
-		        el.hidden ? el.removeAttribute('hidden') : el.setAttribute('hidden', '');
-		      });
-		  });
-		
-		  // PDF geração com feedback & spinner
-		  const notif = document.getElementById('notification');
-		  const ovl = document.getElementById('overlay');
-		  document.getElementById('generate-pdf')
-		    .addEventListener('click', async () => {
-		      document.querySelectorAll('textarea').forEach(t => {
-		        if (t.value.length > 200) t.value = t.value.slice(0, 200);
-		      });
-		
-		      ovl.removeAttribute('hidden');
-		      notif.textContent = 'Seu PDF está sendo preparado…';
-		      notif.removeAttribute('hidden');
-		      await new Promise(r => setTimeout(r, 50));
-		
-		      const { jsPDF } = window.jspdf;
-		      const doc = new jsPDF();
-		      let y = 20, margin = 20;
-		      doc.setFontSize(18);
-		      doc.text('Plano de Segurança Emocional', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
-		      y += 12;
-		      doc.setFontSize(12);
-		      const intro = 'Este Plano de Segurança Emocional é uma ferramenta prática para usar quando a crise se aproxima. Ele ajuda a identificar sinais, listar estratégias de enfrentamento, distrações saudáveis, rede de apoio, contatos de emergência e tornar o ambiente seguro.';
-		      doc.text(intro, margin, y, { maxWidth:168, align:'justify' });
-		      y += 30;
-		      document.querySelectorAll('.plan-step').forEach((step, i) => {
-		        const title = step.querySelector('h3').innerText;
-		        const val = step.querySelector('textarea').value || '---';
-		        doc.setFont(undefined,'bold');
-		        doc.text(`${i+1}. ${title}`, margin, y);
-		        y += 6;
-		        doc.setFont(undefined,'normal');
-		        doc.text(val, margin+4, y, { maxWidth:168, align:'justify' });
-		        y += 20;
-		      });
-		      const vids = [
-		        ['Música Calmante','https://youtu.be/EMiDYIVhpKA'],
-		        ['Crise de Ansiedade','https://youtu.be/AMu9YYKB3YU'],
-		        ['Sem Vontade de Viver','https://youtu.be/7rjk9gANBP4'],
-		        ['Respiração Quadrada','https://youtu.be/85pQAwyNgYI'],
-		        ['Grounding Guiado','https://youtu.be/ov4gq0PnzzA']
-		      ];
-		      doc.setFont(undefined,'bold');
-		      doc.text('Links de Vídeos:', margin, y);
-		      y += 6;
-		      doc.setFont(undefined,'normal');
-		      vids.forEach(([t,l]) => {
-		        doc.text(`${t}: ${l}`, margin+4, y);
-		        y += 6;
-		      });
-		      y += 10;
-		      const concl = 'Parabéns por usar este plano! Mantenha-o sempre à mão e revise suas respostas quando sentir necessidade. Este guia é seu aliado na busca por estabilidade emocional e segurança. Você não está sozinho — conte sempre com apoio.';
-		      doc.text(concl, margin, y, { maxWidth:168, align:'justify' });
-		      y += 30;
-		      doc.text('Richelmy Murta, Psicólogo Clínico', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
-		      y += 6; doc.setFontSize(10);
-		      doc.text('Especialista em Terapia Cognitivo-Comportamental', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
-		      y += 6;
-		      doc.text('35 98464‑0729', doc.internal.pageSize.getWidth()/2, y, { align:'center' });
-		      doc.save('Plano-de-Segurança.pdf');
-		
-		      ovl.setAttribute('hidden', '');
-		      notif.textContent = 'Pronto! Verifique seus downloads.';
-		      setTimeout(() => notif.setAttribute('hidden', ''), 5000);
-		    });
-		
-		  // CVV
-		  document.getElementById('cvv-btn')
-		    .addEventListener('click', () => window.location.href = 'https://cvv.org.br/');
-		
-		  // Enviar mensagem com saudação padrão
-		  document.getElementById('send-message')
-		    .addEventListener('click', () => {
-		      const userText = encodeURIComponent(document.getElementById('user-message').value);
-		      const prefix = encodeURIComponent('Oi! Eu acessei seu Plano de Segurança Emocional e gostaria de dizer que: ');
-		      window.open(`https://api.whatsapp.com/send?phone=5535984640729&text=${prefix}${userText}`);
-		    });
-		});
-	</script>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">R</div>
+      <div>
+        <p class="brand-title">Plano de Segurança Emocional</p>
+        <p class="brand-subtitle">Richelmy Murta · Psicologia Clínica</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" id="textSizeBtn" type="button" aria-label="Aumentar tamanho do texto">A+</button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar tema">◐</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="screen active" id="homeScreen" aria-labelledby="homeTitle">
+      <div class="hero shell">
+        <p class="eyebrow">PLANO DE SEGURANÇA</p>
+        <h1 id="homeTitle">Quando a mente estreita, o plano reduz decisões.</h1>
+        <p class="lead">Este recurso funciona melhor quando é preparado com antecedência e revisado em terapia. Em uma crise, use o plano já pronto, uma etapa por vez.</p>
+      </div>
+
+      <div class="shell mode-shell">
+        <div class="mode-grid">
+          <button class="mode-card urgent" id="usePlanBtn" type="button">
+            <span class="mode-kicker">PRECISO DE APOIO AGORA</span>
+            <strong>Usar meu plano</strong>
+            <span>Mostre apenas o próximo passo, com opção de ouvir a orientação.</span>
+          </button>
+          <button class="mode-card" id="editPlanBtn" type="button">
+            <span class="mode-kicker">ESTOU MAIS ESTÁVEL</span>
+            <strong>Montar ou revisar meu plano</strong>
+            <span>Personalize sinais, estratégias, pessoas, serviços e ambiente seguro.</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="shell safety-principles">
+        <p class="kicker">COMO ESTE PLANO FUNCIONA</p>
+        <div class="principle-grid">
+          <article><strong>1 · Reconhecer</strong><span>Perceber sinais precoces antes que a crise fique mais intensa.</span></article>
+          <article><strong>2 · Ganhar tempo</strong><span>Usar estratégias simples antes de tomar decisões importantes.</span></article>
+          <article><strong>3 · Aproximar apoio</strong><span>Recorrer a pessoas e serviços definidos previamente.</span></article>
+          <article><strong>4 · Aumentar segurança</strong><span>Organizar o ambiente e reduzir exposição a situações que aumentem risco.</span></article>
+        </div>
+      </div>
+
+      <button class="emergency-strip" id="urgentHelpBtn" type="button">
+        <span aria-hidden="true">!</span>
+        <strong>Não consigo me manter seguro neste momento</strong>
+      </button>
+    </section>
+
+    <section class="screen" id="useScreen" aria-labelledby="useTitle">
+      <div class="screen-head shell compact">
+        <button class="back-link" type="button" data-go="home">← Voltar</button>
+        <p class="kicker">MODO AGORA</p>
+        <h1 id="useTitle">Uma etapa por vez</h1>
+        <p>Não é necessário completar tudo. Se um passo não ajudar, avance para o próximo.</p>
+      </div>
+
+      <div class="shell plan-status" id="planStatus" aria-live="polite"></div>
+
+      <div class="shell crisis-step" id="crisisStep" aria-live="polite">
+        <div class="step-topline">
+          <span id="stepCounter">Passo 1 de 7</span>
+          <button class="voice-btn" id="speakStepBtn" type="button" aria-pressed="false">Ouvir este passo</button>
+        </div>
+        <p class="step-label" id="stepLabel"></p>
+        <h2 id="stepTitle"></h2>
+        <p class="stepPrompt" id="stepPrompt"></p>
+        <div class="saved-content" id="stepSaved"></div>
+        <div class="step-extra" id="stepExtra"></div>
+        <div class="step-actions">
+          <button class="btn subtle" id="prevStepBtn" type="button">Anterior</button>
+          <button class="btn primary" id="nextStepBtn" type="button">Próximo passo</button>
+        </div>
+      </div>
+
+      <div class="shell audio-card">
+        <div>
+          <p class="kicker">ÁUDIO BREVE · OPCIONAL</p>
+          <h2>Orientação ao presente</h2>
+          <p>Uma voz do próprio navegador conduz uma orientação curta. Não exige internet e pode ser interrompida a qualquer momento.</p>
+        </div>
+        <button class="btn subtle" id="groundingAudioBtn" type="button">Ouvir orientação breve</button>
+      </div>
+
+      <button class="emergency-strip" id="urgentHelpBtn2" type="button">
+        <span aria-hidden="true">!</span>
+        <strong>Preciso de ajuda humana agora</strong>
+      </button>
+    </section>
+
+    <section class="screen" id="editScreen" aria-labelledby="editTitle">
+      <div class="screen-head shell compact">
+        <button class="back-link" type="button" data-go="home">← Voltar</button>
+        <p class="kicker">MONTAR / REVISAR</p>
+        <h1 id="editTitle">Prepare o plano quando houver margem para pensar</h1>
+        <p>Preencha com frases curtas, concretas e fáceis de reconhecer. O objetivo é reduzir decisões durante a crise.</p>
+      </div>
+
+      <form id="planForm" class="shell form-shell" autocomplete="off">
+        <div class="step-editor">
+          <div class="number">1</div>
+          <div class="field full">
+            <label for="signals">Sinais de alerta</label>
+            <p class="field-help">O que costuma aparecer primeiro em pensamentos, emoções, corpo ou comportamento?</p>
+            <textarea id="signals" name="signals" maxlength="600" placeholder="Ex.: começo a me isolar, acelero pensamentos, perco sono, sinto urgência para resolver tudo."></textarea>
+          </div>
+        </div>
+
+        <div class="step-editor">
+          <div class="number">2</div>
+          <div class="field full">
+            <label for="internal">Estratégias que posso fazer sozinho por alguns minutos</label>
+            <p class="field-help">Escolha poucas ações simples que já foram testadas e são seguras para você.</p>
+            <textarea id="internal" name="internal" maxlength="600" placeholder="Ex.: sair do quarto, beber água, orientação pelos sentidos, respiração confortável, caminhar em local seguro."></textarea>
+          </div>
+        </div>
+
+        <div class="step-editor">
+          <div class="number">3</div>
+          <div class="field full">
+            <label for="social">Pessoas ou lugares que ajudam a atravessar o momento</label>
+            <p class="field-help">Podem ser pessoas com quem você consegue ficar ou lugares seguros e previsíveis.</p>
+            <textarea id="social" name="social" maxlength="600" placeholder="Ex.: ficar na sala com alguém da família, ir para um local conhecido, conversar sobre outro assunto."></textarea>
+          </div>
+        </div>
+
+        <div class="step-editor two-cols">
+          <div class="number">4</div>
+          <div class="field">
+            <label for="trustedPerson">Pessoa a quem posso dizer claramente que preciso de ajuda</label>
+            <input id="trustedPerson" name="trustedPerson" maxlength="120" placeholder="Nome ou vínculo">
+          </div>
+          <div class="field">
+            <label for="trustedContact">Contato</label>
+            <input id="trustedContact" name="trustedContact" maxlength="80" inputmode="tel" placeholder="Telefone ou forma de contato">
+          </div>
+          <div class="field full no-number-offset">
+            <label for="trustedMessage">O que posso dizer</label>
+            <input id="trustedMessage" name="trustedMessage" maxlength="180" placeholder="Ex.: Não estou bem e preciso que você fique comigo agora.">
+          </div>
+        </div>
+
+        <div class="step-editor two-cols">
+          <div class="number">5</div>
+          <div class="field">
+            <label for="professional">Profissional ou serviço de referência</label>
+            <input id="professional" name="professional" maxlength="140" placeholder="Nome / serviço">
+          </div>
+          <div class="field">
+            <label for="professionalContact">Contato</label>
+            <input id="professionalContact" name="professionalContact" maxlength="100" placeholder="Telefone / endereço / canal">
+          </div>
+          <div class="field full no-number-offset">
+            <label for="urgentService">Onde procurar atendimento presencial de urgência/emergência</label>
+            <input id="urgentService" name="urgentService" maxlength="180" placeholder="Serviço, unidade ou local definido com seu profissional">
+          </div>
+        </div>
+
+        <div class="step-editor">
+          <div class="number">6</div>
+          <div class="field full">
+            <label for="saferEnvironment">Como tornar o ambiente mais seguro</label>
+            <p class="field-help">Combine ações simples, preferencialmente com ajuda de outra pessoa, para reduzir exposição a situações ou objetos que aumentem risco.</p>
+            <textarea id="saferEnvironment" name="saferEnvironment" maxlength="600" placeholder="Ex.: ficar perto de uma pessoa de confiança, mudar de ambiente, pedir ajuda para organizar o espaço."></textarea>
+          </div>
+        </div>
+
+        <div class="step-editor">
+          <div class="number">7</div>
+          <div class="field full">
+            <label for="reasons">O que importa o suficiente para eu ganhar tempo agora?</label>
+            <p class="field-help">Pode ser uma pessoa, valor, compromisso, projeto, cuidado, fé, curiosidade ou qualquer motivo que faça sentido para você.</p>
+            <textarea id="reasons" name="reasons" maxlength="600" placeholder="Escreva apenas o que é genuíno para você."></textarea>
+          </div>
+        </div>
+
+        <div class="privacy-box">
+          <strong>Privacidade</strong>
+          <p>Enquanto você edita, o conteúdo fica apenas nesta sessão. Ele só será guardado após clicar em “Salvar neste dispositivo”. Em aparelhos compartilhados, prefira não salvar dados pessoais.</p>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn primary" type="button" id="savePlanBtn">Salvar neste dispositivo</button>
+          <button class="btn subtle" type="button" id="printPlanBtn">Imprimir / salvar PDF</button>
+          <button class="btn subtle" type="button" id="clearPlanBtn">Apagar dados salvos</button>
+        </div>
+        <p class="saved-at" id="savedAt" aria-live="polite"></p>
+      </form>
+
+      <div class="shell tools-section">
+        <p class="kicker">FERRAMENTAS PARA TREINAR FORA DO PICO</p>
+        <h2>Recursos breves</h2>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <h3>Orientação pelos sentidos</h3>
+            <p>Olhe ao redor e identifique elementos neutros do ambiente. Perceba o apoio dos pés, cadeira ou parede. O objetivo é aumentar contato com o presente, não “apagar” a emoção.</p>
+            <button class="btn subtle" type="button" id="groundingAudioBtn2">Ouvir orientação</button>
+          </article>
+          <article class="tool-card">
+            <h3>Respiração confortável</h3>
+            <p>Respire sem prender o ar. Se for confortável, deixe a saída do ar um pouco mais longa. Pare se houver tontura, falta de ar ou piora do desconforto.</p>
+            <button class="btn subtle" type="button" id="breathingAudioBtn">Ouvir orientação</button>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="helpDialog" aria-labelledby="helpTitle">
+    <form method="dialog" class="dialog-close"><button aria-label="Fechar">×</button></form>
+    <div class="dialog-body">
+      <p class="kicker">AJUDA HUMANA</p>
+      <h2 id="helpTitle">Se você não consegue permanecer seguro</h2>
+      <p>Não fique sozinho usando exercícios. Aproxime-se de uma pessoa adulta de confiança e procure atendimento presencial de urgência ou emergência na sua região.</p>
+      <div class="help-actions">
+        <a class="btn primary" href="tel:+55188">Ligar para o CVV · 188</a>
+        <a class="btn subtle" href="https://www.cvv.org.br/chat/" target="_blank" rel="noopener noreferrer">Abrir chat do CVV</a>
+      </div>
+      <div class="therapist-boundary">
+        <strong>Contato com o psicólogo</strong>
+        <p>Mensagens para o psicólogo não funcionam como atendimento de emergência e podem não ser vistas imediatamente.</p>
+        <a class="btn subtle" href="https://api.whatsapp.com/send?phone=5535984640729&text=Oi%2C%20acessei%20meu%20Plano%20de%20Seguran%C3%A7a%20Emocional%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer">Enviar mensagem</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <div class="brand-mark small" aria-hidden="true">R</div>
+      <div><strong>Richelmy Murta</strong><span>Psicólogo clínico</span></div>
+    </div>
+    <p>Recurso psicoeducativo complementar para planejamento de segurança e organização de apoio. Não substitui avaliação profissional ou atendimento de emergência.</p>
+    <p class="footer-boundary">Mensagens enviadas ao psicólogo podem não ser respondidas imediatamente e não devem ser usadas como canal de emergência.</p>
+    <p class="copyright">© 2026 Richelmy Murta · Psicologia Clínica</p>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
-
 </html>
