@@ -7,11 +7,16 @@
   <meta name="color-scheme" content="light dark">
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Plano de Segurança Emocional para organizar apoio, estratégias e próximos passos em momentos de crise.">
+  <meta property="og:title" content="Plano de Segurança Emocional | Richelmy Murta">
+  <meta property="og:description" content="Um recurso breve para usar um plano previamente preparado, uma etapa por vez.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ricmurtapsicologia.github.io/planosegurancaemocional/">
   <title>Plano de Segurança Emocional | Richelmy Murta · Psicologia Clínica</title>
+  <link rel="canonical" href="https://ricmurtapsicologia.github.io/planosegurancaemocional/">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
@@ -34,8 +39,8 @@
     <section class="screen active" id="homeScreen" aria-labelledby="homeTitle">
       <div class="hero shell">
         <p class="eyebrow">PLANO DE SEGURANÇA</p>
-        <h1 id="homeTitle">Quando a mente estreita, o plano reduz decisões.</h1>
-        <p class="lead">Este recurso funciona melhor quando é preparado com antecedência e revisado em terapia. Em uma crise, use o plano já pronto, uma etapa por vez.</p>
+        <h1 id="homeTitle">Você não precisa resolver tudo agora.</h1>
+        <p class="lead">Use o plano já pronto, uma etapa por vez. Este recurso funciona melhor quando é preparado com antecedência e revisado em terapia.</p>
       </div>
 
       <div class="shell mode-shell">
@@ -99,14 +104,14 @@
         <div>
           <p class="kicker">ÁUDIO BREVE · OPCIONAL</p>
           <h2>Orientação ao presente</h2>
-          <p>Uma voz do próprio navegador conduz uma orientação curta. Não exige internet e pode ser interrompida a qualquer momento.</p>
+          <p>Uma voz do navegador conduz uma orientação curta e pode ser interrompida a qualquer momento. A disponibilidade da voz depende do navegador e do dispositivo.</p>
         </div>
-        <button class="btn subtle" id="groundingAudioBtn" type="button">Ouvir orientação breve</button>
+        <button class="btn subtle" id="groundingAudioBtn" type="button" aria-pressed="false">Ouvir orientação breve</button>
       </div>
 
-      <button class="emergency-strip" id="urgentHelpBtn2" type="button">
+      <button class="crisis-help-dock" id="urgentHelpBtn2" type="button">
         <span aria-hidden="true">!</span>
-        <strong>Preciso de ajuda humana agora</strong>
+        <strong>Ajuda humana agora</strong>
       </button>
     </section>
 
@@ -216,12 +221,12 @@
           <article class="tool-card">
             <h3>Orientação pelos sentidos</h3>
             <p>Olhe ao redor e identifique elementos neutros do ambiente. Perceba o apoio dos pés, cadeira ou parede. O objetivo é aumentar contato com o presente, não “apagar” a emoção.</p>
-            <button class="btn subtle" type="button" id="groundingAudioBtn2">Ouvir orientação</button>
+            <button class="btn subtle" type="button" id="groundingAudioBtn2" aria-pressed="false">Ouvir orientação</button>
           </article>
           <article class="tool-card">
             <h3>Respiração confortável</h3>
             <p>Respire sem prender o ar. Se for confortável, deixe a saída do ar um pouco mais longa. Pare se houver tontura, falta de ar ou piora do desconforto.</p>
-            <button class="btn subtle" type="button" id="breathingAudioBtn">Ouvir orientação</button>
+            <button class="btn subtle" type="button" id="breathingAudioBtn" aria-pressed="false">Ouvir orientação</button>
           </article>
         </div>
       </div>
@@ -233,7 +238,13 @@
     <div class="dialog-body">
       <p class="kicker">AJUDA HUMANA</p>
       <h2 id="helpTitle">Se você não consegue permanecer seguro</h2>
-      <p>Não fique sozinho usando exercícios. Aproxime-se de uma pessoa adulta de confiança e procure atendimento presencial de urgência ou emergência na sua região.</p>
+      <p>Aproxime-se de uma pessoa adulta de confiança e procure atendimento presencial de urgência ou emergência na sua região.</p>
+
+      <div class="personal-help" id="personalHelp" hidden>
+        <strong>Seu apoio já definido</strong>
+        <div id="personalHelpList"></div>
+      </div>
+
       <div class="help-actions">
         <a class="btn primary" href="tel:+55188">Ligar para o CVV · 188</a>
         <a class="btn subtle" href="https://www.cvv.org.br/chat/" target="_blank" rel="noopener noreferrer">Abrir chat do CVV</a>
@@ -251,11 +262,11 @@
   <footer class="site-footer">
     <div class="footer-brand">
       <div class="brand-mark small" aria-hidden="true">R</div>
-      <div><strong>Richelmy Murta</strong><span>Psicólogo clínico</span></div>
+      <div><strong>Richelmy Murta Pinto</strong><span>Psicólogo clínico · CRP 04/54.383</span></div>
     </div>
     <p>Recurso psicoeducativo complementar para planejamento de segurança e organização de apoio. Não substitui avaliação profissional ou atendimento de emergência.</p>
     <p class="footer-boundary">Mensagens enviadas ao psicólogo podem não ser respondidas imediatamente e não devem ser usadas como canal de emergência.</p>
-    <p class="copyright">© 2026 Richelmy Murta · Psicologia Clínica</p>
+    <p class="copyright">© 2026 Richelmy Murta Pinto · Psicologia Clínica · CRP 04/54.383</p>
   </footer>
 
   <script src="app.js" defer></script>
